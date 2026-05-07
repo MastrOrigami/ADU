@@ -1,3 +1,4 @@
+
 # ADU
 
 This repository contains the anonymous implementation of **ADU**, an attention-structured machine unlearning method for large language models. The code is released for anonymous peer review and is intended to reproduce the main unlearning, retention, and evaluation procedures described in the accompanying paper.
@@ -34,3 +35,29 @@ ADU/
     ├── test-wmdp.sh           # lm-eval script for WMDP-Bio and WMDP-Cyber
     └── test-mmlu-n-loglikelihood.sh
                               # lm-eval script for MMLU retention evaluation
+````
+
+## Installation
+
+We recommend using a clean Python environment.
+
+```bash
+conda create -n adu python=3.10 -y
+conda activate adu
+```
+
+Install the main dependencies:
+
+```bash
+pip install torch transformers datasets accelerate numpy tqdm sentencepiece protobuf
+pip install lm-eval
+```
+
+Depending on the model family, additional packages such as `tokenizers`, `safetensors`, or model-specific dependencies may be required.
+
+For Hugging Face models or datasets that require authentication, set your token locally:
+
+```bash
+export HF_TOKEN="<your_huggingface_token>"
+```
+
